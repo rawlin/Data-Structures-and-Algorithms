@@ -1,3 +1,5 @@
+package LinkedLists
+
 import java.util.*
 import kotlin.collections.HashSet
 
@@ -11,10 +13,7 @@ fun main(args: Array<String>) {
     linkedList.addLast(5)
     linkedList.addLast(6)
     linkedList.addLast(5)
-    removeDuplicatesFromLinkedList(linkedList)
-    linkedList.forEach {
-        print("$it->")
-    }
+    print(findKToTheLastElementInLinkedList(linkedList, 3))
 }
 
 private fun removeDuplicatesFromLinkedList(linkedList: LinkedList<Int>) {
@@ -26,4 +25,9 @@ private fun removeDuplicatesFromLinkedList(linkedList: LinkedList<Int>) {
     hashSet.forEach { element ->
         linkedList.add(element)
     }
+}
+
+private fun findKToTheLastElementInLinkedList(linkedList: LinkedList<Int>, k: Int): Int {
+    val position = linkedList.size - k
+    return linkedList[position]
 }
