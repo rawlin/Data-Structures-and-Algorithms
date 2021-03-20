@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     linkedList.addLast(5)
     linkedList.addLast(6)
     linkedList.addLast(5)
-    print(findKToTheLastElementInLinkedList(linkedList, 3))
+
 }
 
 private fun removeDuplicatesFromLinkedList(linkedList: LinkedList<Int>) {
@@ -30,4 +30,8 @@ private fun removeDuplicatesFromLinkedList(linkedList: LinkedList<Int>) {
 private fun findKToTheLastElementInLinkedList(linkedList: LinkedList<Int>, k: Int): Int {
     val position = linkedList.size - k
     return linkedList[position]
+}
+
+private fun partitionLinkedListAroundX(linkedList: LinkedList<Int>, x: Int) {
+    
 }
