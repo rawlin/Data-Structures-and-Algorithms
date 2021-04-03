@@ -1,6 +1,6 @@
 package linkedlists
 
-class LinkedList<T> : Collection<T> {
+class LinkedList<T> : Collection<T>, MutableIterable<T> {
 
     private var head: Node<T>? = null
     private var tail: Node<T>? = null
@@ -12,10 +12,10 @@ class LinkedList<T> : Collection<T> {
     }
 
     override fun toString(): String {
-        if (isEmpty()) {
-            return "Empty list"
+        return if (isEmpty()) {
+            "Empty list"
         } else {
-            return head.toString()
+            head.toString()
         }
     }
 
@@ -107,7 +107,7 @@ class LinkedList<T> : Collection<T> {
         return result
     }
 
-    override fun iterator(): Iterator<T> {
+    override fun iterator(): MutableIterator<T> {
         return LinkedListIterator(this)
     }
 

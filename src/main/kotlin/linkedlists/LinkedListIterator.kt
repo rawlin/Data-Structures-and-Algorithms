@@ -2,7 +2,7 @@ package linkedlists
 
 class LinkedListIterator<T>(
         private val list: LinkedList<T>
-) : Iterator<T> {
+) : MutableIterator<T> {
 
     private var index = 0
     private var lastNode: Node<T>? = null
@@ -22,5 +22,17 @@ class LinkedListIterator<T>(
 
         index++
         return lastNode!!.value
+    }
+
+    override fun remove() {
+        if (index == 1) {
+            list.pop()
+        } else {
+            val prevNode = list.nodeAt(index - 2) ?: return
+
+            list.removeAfter(prevNode)
+            lastNode = prevNode
+        }
+        index--
     }
 }
