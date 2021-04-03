@@ -1,12 +1,13 @@
 package linkedlists
 
-class LinkedList<T> {
+class LinkedList<T> : Collection<T> {
 
     private var head: Node<T>? = null
     private var tail: Node<T>? = null
-    private var size = 0
+    override var size = 0
+        private set
 
-    fun isEmpty(): Boolean {
+    override fun isEmpty(): Boolean {
         return size == 0
     }
 
@@ -106,6 +107,26 @@ class LinkedList<T> {
         return result
     }
 
+    override fun iterator(): Iterator<T> {
+        return LinkedListIterator(this)
+    }
+
+    override fun contains(element: T): Boolean {
+        for (item in this) {
+            if (item == element) return true
+        }
+        return false
+    }
+
+    /**
+     * Complexity of O(n^2)
+     */
+    override fun containsAll(elements: Collection<T>): Boolean {
+        for (searched in elements) {
+            if (!contains(searched)) return false
+        }
+        return true
+    }
 
 
 }
