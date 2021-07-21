@@ -3,10 +3,15 @@ package linkedlists
 fun main(args: Array<String>) {
 
     val list = LinkedList<Int>()
-    list.append(1).append(2).append(3)
+    list.add(3)
+    list.add(2)
+    list.add(1)
+    list.add(6)
+    list.add(7)
+    list.add(8)
 
-    for (i in list) {
-        println("Double: ${i*2}")
-    }
+    println(list)
+    list.retainAll(listOf(1, 6, 7))
+    println(list)
 }
 
